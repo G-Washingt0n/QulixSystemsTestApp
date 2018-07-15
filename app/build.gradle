@@ -33,7 +33,7 @@ dependencies {
 
     final RETROFIT_VERSION = '2.3.0'
     final RX_JAVA_VERSION = '2.1.2'
-    final RX_ANDROID_VERSION = '2.0.1'
+    final RX_ANDROID_VERSION = '2.0.2'
     final KOIN_VERSION = '0.9.1'
 
     final BUTTER_KNIFE_VERSION = '8.8.1'
@@ -48,7 +48,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "com.android.support:recyclerview-v7:$ANDROID_SUPPORT_VERSION"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     // Koin
     implementation "org.koin:koin-android:$KOIN_VERSION"
