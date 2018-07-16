@@ -55,9 +55,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp" />
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImage"
-        android:src="@drawable/tenor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,7 +10,9 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.gmail.martsulgp.qulixsystemstestapp.R
 import com.gmail.martsulgp.qulixsystemstestapp.model.entity.Data
+import com.gmail.martsulgp.qulixsystemstestapp.utils.GlideApp
 import com.squareup.picasso.Picasso
+import pl.droidsonroids.gif.GifImageView
 
 
 class ScrollingAdapter(var items: List<Data>, var callback: Callback) : RecyclerView.Adapter<ScrollingAdapter.ScrollingHolder>() {
@@ -33,7 +35,7 @@ class ScrollingAdapter(var items: List<Data>, var callback: Callback) : Recycler
         @BindView(R.id.itemTitle)
         lateinit var itemTitle: TextView
         //  @BindView(R.id.gifImage) //conflict between 3rd party library $ ButterKnife
-        var gifImage: ImageView = itemView.findViewById(R.id.gifImage)
+        var gifImage: GifImageView = itemView.findViewById(R.id.gifImage)
 
 
         init {
