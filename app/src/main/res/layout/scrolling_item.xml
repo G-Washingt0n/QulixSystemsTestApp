@@ -55,7 +55,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp" />
 
-    <pl.droidsonroids.gif.GifImageView
+    <com.felipecsl.gifimageview.library.GifImageView
         android:id="@+id/gifImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

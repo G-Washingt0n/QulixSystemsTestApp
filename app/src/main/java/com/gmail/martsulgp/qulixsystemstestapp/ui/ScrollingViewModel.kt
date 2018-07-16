@@ -57,8 +57,6 @@ class ScrollingViewModel(private val activity: AppCompatActivity, private val gi
         searchBtn = activity.findViewById(R.id.searchBtn)
         searchBtn.setOnClickListener { view -> onSearchClick() }
         progressBar = activity.findViewById(R.id.progressBar)
-
-
         simpleRequest(offset)
     }
 

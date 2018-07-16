@@ -8,11 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
+import com.felipecsl.gifimageview.library.GifImageView
 import com.gmail.martsulgp.qulixsystemstestapp.R
 import com.gmail.martsulgp.qulixsystemstestapp.model.entity.Data
 import com.gmail.martsulgp.qulixsystemstestapp.utils.GlideApp
 import com.squareup.picasso.Picasso
-import pl.droidsonroids.gif.GifImageView
 
 
 class ScrollingAdapter(var items: List<Data>, var callback: Callback) : RecyclerView.Adapter<ScrollingAdapter.ScrollingHolder>() {
@@ -56,10 +56,8 @@ class ScrollingAdapter(var items: List<Data>, var callback: Callback) : Recycler
                         .asGif()
                         .load(item.image.smallImage.imageUrl)
                         .into(gifImage)
-//                Picasso.with(gifImage.context)
-//                        .load(item.image.smallImage.imageUrl)
-//                        .into(gifImage)
             }
+            gifImage.startAnimation()
             userReference.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     callback.onReferenceClick(items[adapterPosition].user.profileUrl)
