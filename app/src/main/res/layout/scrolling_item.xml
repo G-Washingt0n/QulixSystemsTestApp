@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="10dp"
@@ -8,7 +9,8 @@
     android:layout_marginTop="15dp"
     android:layout_marginBottom="20dp"
     android:orientation="horizontal"
-    android:background="@drawable/white_layout_rect">
+    android:background="@drawable/white_layout_rect"
+    tools:ignore="WebViewLayout">
 
     <TextView
         android:id="@+id/itemTitle"
@@ -30,14 +32,15 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="11dp" />
 
+
     <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userAvatar"
+        app:layout_constraintStart_toEndOf="@id/userAvatar"
+        app:layout_constraintTop_toBottomOf="@id/itemTitle"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp" />
 
@@ -47,10 +50,21 @@
         android:layout_height="wrap_content"
         android:textColor="@color/blue"
         android:text="reference"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/userAvatar"
         app:layout_constraintTop_toBottomOf="@id/userName"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp" />
 
+    <ImageView
+        android:id="@+id/gifImage"
+        android:src="@drawable/tenor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userAvatar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -12,6 +12,7 @@ import com.gmail.martsulgp.qulixsystemstestapp.R
 import com.gmail.martsulgp.qulixsystemstestapp.model.entity.Data
 import com.squareup.picasso.Picasso
 
+
 class ScrollingAdapter(var items: List<Data>, var callback: Callback) : RecyclerView.Adapter<ScrollingAdapter.ScrollingHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int) = ScrollingHolder(LayoutInflater.from(p0.context).inflate(R.layout.scrolling_item, p0, false))
 
@@ -31,6 +32,9 @@ class ScrollingAdapter(var items: List<Data>, var callback: Callback) : Recycler
         lateinit var userReference: TextView
         @BindView(R.id.itemTitle)
         lateinit var itemTitle: TextView
+        //  @BindView(R.id.gifImage) //conflict between 3rd party library $ ButterKnife
+        var gifImage: ImageView = itemView.findViewById(R.id.gifImage)
+
 
         init {
             ButterKnife.bind(this, itemView)
@@ -40,15 +44,25 @@ class ScrollingAdapter(var items: List<Data>, var callback: Callback) : Recycler
             itemTitle.text = item.title
             userName.text = item.user.userRealName
             userReference.text = item.user.profileUrl
-            Picasso.with(userAvatar.context)
-                    .load(item.user.avatar)
-                    .into(userAvatar)
+            if (item.user.avatar != "") {
+                Picasso.with(userAvatar.context)
+                        .load(item.user.avatar)
+                        .into(userAvatar)
+            }
+            if (item.image.smallImage.imageUrl != "") {
+                GlideApp.with(gifImage.context)
+                        .asGif()
+                        .load(item.image.smallImage.imageUrl)
+                        .into(gifImage)
+//                Picasso.with(gifImage.context)
+//                        .load(item.image.smallImage.imageUrl)
+//                        .into(gifImage)
+            }
             userReference.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     callback.onReferenceClick(items[adapterPosition].user.profileUrl)
                 }
             }
-
 
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
