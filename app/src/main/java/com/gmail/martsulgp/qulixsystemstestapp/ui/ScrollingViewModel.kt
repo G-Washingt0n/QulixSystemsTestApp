@@ -120,7 +120,7 @@ class ScrollingViewModel(private val activity: AppCompatActivity, private val gi
     }
 
     fun onSearchClick() {
-        if (request.get() == "" || request.get() == null) {
+        if (request.get().isNullOrBlank()) {
             simpleRequest(offset = 0)
         } else {
             searchRequest(request.get()!!, offset = 0)
